@@ -1,4 +1,5 @@
 #!/usr/bin/ruby
+require "rubygems"
 require "mysql"
 
 begin
@@ -13,7 +14,8 @@ begin
               (
                 user_id   varchar(255) not null,
                 user_pass varchar(255) not null,
-                user_session_uuid varchar(40)
+                user_session_uuid varchar(40),
+                last_access_datetime datetime
               )
             ")
   dbh.query("INSERT INTO user_access(user_id, user_pass) values('root', 'abc123')")
