@@ -16,7 +16,7 @@
 			// Generate a GUID
 			$result = mysql_query("select uuid() as unique_id");
 			$retVal = mysql_result($result, 0, "unique_id");
-			mysql_query("update user_access set user_session_uuid='" . $retVal . "'");
+			mysql_query("update user_access set user_session_uuid='" . $retVal . "', last_access_datetime=utc_timestamp()");
 		} else {
 			$retVal = null;
 		}
